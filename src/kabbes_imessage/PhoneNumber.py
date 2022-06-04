@@ -1,9 +1,8 @@
 import re
-import Parent_Class
+from parent_class import ParentClass
 import py_starter as ps
 
-
-class PhoneNumber( Parent_Class.Parent_Class ):
+class PhoneNumber( ParentClass ):
 
     DEFAULT_ATT_VALUES = {
     'country_code': '1',
@@ -11,11 +10,12 @@ class PhoneNumber( Parent_Class.Parent_Class ):
     'phone_number': None,
     'digits': None,
     'formatted': None,
+    'medium': 'iMessage'
     }
 
     def __init__( self, long_phone_number = '', **kwargs ):
 
-        Parent_Class.Parent_Class.__init__( self )
+        ParentClass.__init__( self )
 
         kwargs = ps.replace_default_kwargs( PhoneNumber.DEFAULT_ATT_VALUES, **kwargs )
         self.set_atts( kwargs )
@@ -23,21 +23,21 @@ class PhoneNumber( Parent_Class.Parent_Class ):
         self.valid = False
         self.check_validity( long_phone_number )
 
+    def __eq__( self, PhoneNumber_inst ):
+
+        return self.digits == PhoneNumber_inst.digits
+
     def print_one_line_atts( self, **kwargs ):
 
         return self._print_one_line_atts_helper( atts = [ 'type','formatted' ], **kwargs )
 
     def print_imp_atts( self, **kwargs ):
 
-        return self._print_imp_atts_helper( atts = ['country_code','area_code','phone_number','digits','formatted','valid'], **kwargs )
-
-    def __eq__( self, PhoneNumber_inst ):
-
-        return self.digits == PhoneNumber_inst.digits
+        return self._print_imp_atts_helper( atts = ['country_code','area_code','phone_number','digits','formatted','valid','medium'], **kwargs )
 
     def check_validity( self, long_phone_number ):
 
-        digits_only = filter_digits_from_str( long_phone_number )
+        digits_only = self.filter_digits_from_str( long_phone_number )
 
         if len(digits_only) >= 10:
             self.valid = True
@@ -55,23 +55,11 @@ class PhoneNumber( Parent_Class.Parent_Class ):
 
         self.formatted = '+' + self.digits
 
+    @staticmethod
+    def filter_digits_from_str( number_str ):
 
-def filter_digits_from_str( number_str ):
+        '''given a str, take only characters which are numbers, returns a string type'''
 
-    '''given a str, take only characters which are numbers, returns a string type'''
-
-    return re.sub( '[^0-9]', '', str(number_str) )
+        return re.sub( '[^0-9]', '', str(number_str) )
 
 
-def do_PhoneNumbers_match( *PhoneNumbers ):
-
-    if len(PhoneNumbers) >= 2:
-
-        PhoneNumber1 = PhoneNumbers[0]
-        for i in range( 1, len(PhoneNumbers)):
-            PhoneNumber2 = PhoneNumbers[i]
-
-            if PhoneNumber1 != PhoneNumber2:
-                return False
-
-    return True
