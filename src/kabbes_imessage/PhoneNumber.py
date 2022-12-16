@@ -13,6 +13,9 @@ class PhoneNumber( ParentClass ):
     'medium': 'iMessage'
     }
 
+    _IMP_ATTS = ['country_code','area_code','phone_number','digits','formatted','valid','medium']
+    _ONE_LINE_ATTS = ['type','formatted']
+
     def __init__( self, long_phone_number = '', **kwargs ):
 
         ParentClass.__init__( self )
@@ -26,14 +29,6 @@ class PhoneNumber( ParentClass ):
     def __eq__( self, PhoneNumber_inst ):
 
         return self.digits == PhoneNumber_inst.digits
-
-    def print_one_line_atts( self, **kwargs ):
-
-        return self._print_one_line_atts_helper( atts = [ 'type','formatted' ], **kwargs )
-
-    def print_imp_atts( self, **kwargs ):
-
-        return self._print_imp_atts_helper( atts = ['country_code','area_code','phone_number','digits','formatted','valid','medium'], **kwargs )
 
     def check_validity( self, long_phone_number ):
 
