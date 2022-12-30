@@ -3,6 +3,7 @@
 
 # imessage
 Python tools for sending iMessage/SMS message from a Mac
+Check out the blog post on medium related to this repository: [Medium](https://medium.com/@jameskabbes/sending-imessages-with-python-on-a-mac-b77b7dd6e371)
 
 <br> 
 
@@ -25,6 +26,25 @@ For more in-depth documentation, read the information provided on the Pages. Or 
 ```python
 import kabbes_imessage
 ```
+
+## Basic Usage
+Check out `utils.py` for the most basic functionality
+
+```python
+kabbes_imessage.send( message_body = 'This is a test message', phone_number = '123-555-5555', medium = 'iMessage' )
+```
+```
+>>> Sending iMessage message This is a test message to type:	PhoneNumber,	formatted:	+11235555555...
+```
+```python
+kabbes_imessage.send_SMS( message_body = 'This is a test message', phone_number = '123-555-5555' )
+```
+```
+>>> Sending SMS message This is a test message to type:	PhoneNumber,	formatted:	+11235555555...
+```
+
+
+## In-depth Usage
 
 ```python
 message_obj = kabbes_imessage.Message( 'This is a test message' ) 
