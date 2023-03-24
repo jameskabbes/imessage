@@ -1,0 +1,46 @@
+name: gh-pages documentation builder
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v3
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install kabbes_smart_documentation
+          python -m pip install -r requirements.txt
+
+      - name: Generate Smart Doc files
+        run: |
+          python -m kabbes_smart_documentation kabbes_smart_documentation.template.name=sphinx user_profile.profile.first_name=James user_profile.profile.last_name=Kabbes user_profile.profile.github.username=jameskabbes user_profile.profile.pypi.username=kabbes user_profile.profile.email=james.kabbes@gmail.com
+
+      - name: add docs/.nojekyll
+        run: |
+          touch docs/.nojekyll
+
+      - uses: actions/checkout@master
+        with:
+          ref: gh-pages
+          path: gh-pages  
+
+      - name: commit to gh-pages
+        run: |
+          git config --global user.email "james.kabbes@gmail.com"
+          git config --global user.name "James Kabbes"
+          git add docs
+          git commit -m "kabbes_smart_documentation workflow"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          force: true
