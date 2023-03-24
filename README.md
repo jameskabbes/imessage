@@ -20,7 +20,7 @@ python -m kabbes_imessage
 <br>
 
 # Usage
-For more in-depth documentation, read the information provided on the Pages. Or better yet, read the source code.
+For more in-depth documentation, read the information provided on documentation site. Or better yet, read the source code.
 
 ```python
 import kabbes_imessage
