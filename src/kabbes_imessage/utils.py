@@ -18,10 +18,10 @@ def send( message_body: str = '', phone_number: str = '', medium: str = 'iMessag
 
 def send_iMessage( **kwargs ):
 
-    """Passes to send function with adding imessage as medium"""
+    """Passes to send function adding imessage as medium"""
     send( **kwargs, medium = 'iMessage' )
 
 def send_SMS( **kwargs ):
 
-    """Passes to send function with adding SMS as medium"""
+    """Passes to send function adding SMS as medium"""
     send( **kwargs, medium = 'SMS' )
