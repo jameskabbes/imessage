@@ -7,7 +7,7 @@ class Message( ParentClass ):
     _ONE_LINE_ATTS = ['type','PhoneNumbers']
     _IMP_ATTS = ['message','PhoneNumbers']
 
-    def __init__( self, message, PhoneNumbers_inst = None, phone_numbers = [], **kwargs ):
+    def __init__( self, message, PhoneNumbers_inst = None, phone_numbers = [] ):
 
         ParentClass.__init__( self )
 
