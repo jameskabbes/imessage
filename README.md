@@ -30,34 +30,15 @@ import kabbes_imessage
 Check out `utils.py` for the most basic functionality
 
 ```python
-kabbes_imessage.send( message_body = 'This is a test message', phone_number = '123-555-5555', medium = 'iMessage' )
-```
-```
->>> Sending iMessage message This is a test message to type:	PhoneNumber,	formatted:	+11235555555...
+kabbes_imessage.send( 'This is a test message', '123-555-5555','iMessage' )
 ```
 ```python
-kabbes_imessage.send_SMS( message_body = 'This is a test message', phone_number = '123-555-5555' )
+kabbes_imessage.send_SMS( 'This is a test message', '123-555-5555' )
 ```
-```
->>> Sending SMS message This is a test message to type:	PhoneNumber,	formatted:	+11235555555...
-```
-
-
-## In-depth Usage
 
 ```python
-message_obj = kabbes_imessage.Message( 'This is a test message' ) 
-message_obj.PhoneNumbers.make_PhoneNumber( '123-555-5555', medium = 'SMS' )
-message_obj.PhoneNumbers.make_PhoneNumber( '234-555-5555', medium = 'iMessage' )
-
-message_obj.send()
+kabbes_imessage.send_iMessage( 'This is a test message', '123-555-5555' )
 ```
-
-```
->>> Sending SMS message This is a test message to type:	PhoneNumber,	formatted:	+11235555555...
-Sending iMessage message This is a test message to type:	PhoneNumber,	formatted:	+12345555555...
-```
-
 
 <br>
 

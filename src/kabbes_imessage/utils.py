@@ -1,10 +1,8 @@
 import kabbes_imessage
+import subprocess
+import re
 
-"""
-The most basic usage for this package
-"""
-
-def send( message_body: str = '', phone_number: str = '', medium: str = 'iMessage') -> bool:
+def send( message: str, phone_number: str, medium: str, print_off: bool=False ) -> bool:
 
     """
     message_body: text to be sent in the message
@@ -12,16 +10,37 @@ def send( message_body: str = '', phone_number: str = '', medium: str = 'iMessag
     medium: 'iMessage' or 'SMS'
     """
 
-    message = kabbes_imessage.Message( message_body )
-    message.PhoneNumbers.make_PhoneNumber( phone_number, medium = medium )
-    return message.send()
+    if medium.lower() not in kabbes_imessage.MEDIUMS:
+        raise kabbes_imessage.exceptions.UnsupportedMediumError('Medium ' + medium + ' not in supported mediums ' + str(list(kabbes_imessage.MEDIUMS.keys())))
+    
+    selected_medium = kabbes_imessage.MEDIUMS[medium.lower()]
+    applescript_code = kabbes_imessage.BASE_APPLESCRIPT.replace("{medium}", selected_medium)
+    if not kabbes_imessage.ON_MAC:
+        raise kabbes_imessage.exceptions.NotOnMacOSError('This library only functions on MacOS')
 
-def send_iMessage( **kwargs ):
+    phone_number = _digits_in_phone_number( phone_number )
+    if len(phone_number) < 10:
+        raise kabbes_imessage.exceptions.BadPhoneNumberFormatError('Formatted Phone Number ' + str(phone_number) + ' is not a valid phone number')
 
-    """Passes to send function adding imessage as medium"""
-    send( **kwargs, medium = 'iMessage' )
+    try:
+        result = subprocess.run(['osascript', '-e', applescript_code, phone_number, message], capture_output=True, text=True, check=True)
+        if print_off:
+            print("Success!")
+            print("Output:", result.stdout)
+        return True
 
-def send_SMS( **kwargs ):
+    except subprocess.CalledProcessError as e:
+        if print_off:
+            print("Error:", e)
+            print("Output:", e.output)
 
-    """Passes to send function adding SMS as medium"""
-    send( **kwargs, medium = 'SMS' )
+        return False
+
+def send_iMessage( *args ):
+    return send( *args, 'iMessage' )
+
+def send_SMS( *args ):
+    return send( *args, 'SMS' )
+
+def _digits_in_phone_number( phone_number: str ) -> str:
+    return ''.join( re.findall(r'[0-9]*', phone_number) )
