@@ -13,8 +13,6 @@ def send( message: str, phone_number: str, medium: str ) -> bool:
     """
 
     # Verify platform is macOS
-    selected_medium = pyimessage.MEDIUMS[medium.lower()]
-    applescript_code = pyimessage.BASE_APPLESCRIPT.replace("{medium}", selected_medium)
     if not pyimessage.ON_MAC:
         pyimessage.LOGGER.error(pyimessage.exceptions.NotOnMacOSError.MESSAGE)
         raise pyimessage.exceptions.NotOnMacOSError(pyimessage.exceptions.NotOnMacOSError.MESSAGE)
@@ -24,6 +22,9 @@ def send( message: str, phone_number: str, medium: str ) -> bool:
         message = pyimessage.exceptions.UnsupportedMediumError.MESSAGE.format( medium=medium,supported_mediums=str(list(pyimessage.MEDIUMS.keys())) )
         pyimessage.LOGGER.error( message )
         raise pyimessage.exceptions.UnsupportedMediumError( message )
+
+    selected_medium = pyimessage.MEDIUMS[medium.lower()]
+    applescript_code = pyimessage.BASE_APPLESCRIPT.replace("{medium}", selected_medium)
 
     # Verify Phone Number is valid
     phone_number = _get_digits_in_phone_number( phone_number )
