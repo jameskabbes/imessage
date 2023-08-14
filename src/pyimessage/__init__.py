@@ -10,7 +10,8 @@ logging.basicConfig(
     level=logging.INFO,  # Set the desired logging level
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
-LOGGER = logging.getLogger('pyimessage')
+
+LOGGER = logging.getLogger(__name__)
 
 # Check user on Mac
 ON_MAC = (platform.system() == 'Darwin')
