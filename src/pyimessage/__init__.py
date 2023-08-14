@@ -1,15 +1,23 @@
 import platform
-
-ON_MAC = (platform.system() == 'Darwin')
-
+import logging
 import warnings
-if ON_MAC:
+
+# Setup logger
+logging.basicConfig(
+    level=logging.INFO,  # Set the desired logging level
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+LOGGER = logging.getLogger('pyimessage')
+
+# Check user on Mac
+ON_MAC = (platform.system() == 'Darwin')
+if not ON_MAC:
     message = (
-        "This package is designed to work on macOS systems only. "
-        "Sending iMessages on other platforms is not supported."
+        "This package is designed to work on macOS systems only. Sending messages on other platforms is not supported."
     )
     warnings.warn(message, UserWarning)
-    
+    LOGGER.warning(message)
+
 BASE_APPLESCRIPT = """
 on run {phone_number, message}
 tell application "Messages"
