@@ -1,9 +1,9 @@
 class NotOnMacOSError(Exception):
-    pass
+    MESSAGE = 'Sending messages on platforms other than macOS is not supported'
 
 class UnsupportedMediumError(Exception):
-    pass
+    MESSAGE = 'Medium {medium} not in supported mediums {supported_mediums}'
 
 class BadPhoneNumberFormatError(Exception):
-    pass
+    MESSAGE = '{phone_number} is not a valid phone number'
 

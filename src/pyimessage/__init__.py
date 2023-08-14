@@ -2,6 +2,9 @@ import platform
 import logging
 import warnings
 
+from .utils import *
+from . import exceptions
+
 # Setup logger
 logging.basicConfig(
     level=logging.INFO,  # Set the desired logging level
@@ -12,11 +15,9 @@ LOGGER = logging.getLogger('pyimessage')
 # Check user on Mac
 ON_MAC = (platform.system() == 'Darwin')
 if not ON_MAC:
-    message = (
-        "This package is designed to work on macOS systems only. Sending messages on other platforms is not supported."
-    )
-    warnings.warn(message, UserWarning)
-    LOGGER.warning(message)
+    warnings.warn(exceptions.NotOnMacOSError.MESSAGE, UserWarning)
+    LOGGER.warning(exceptions.NotOnMacOSError.MESSAGE
+)
 
 BASE_APPLESCRIPT = """
 on run {phone_number, message}
@@ -33,5 +34,3 @@ MEDIUMS = {
     "imessage": "iMessage"
 }
 
-from .utils import *
-from . import exceptions
