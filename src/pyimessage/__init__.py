@@ -1,9 +1,15 @@
 import platform
 
 ON_MAC = (platform.system() == 'Darwin')
-if not ON_MAC:
-    print ('kabbes_imessage Note: no messages will be able to send. You are not running this on a Macintosh system')
 
+import warnings
+if ON_MAC:
+    message = (
+        "This package is designed to work on macOS systems only. "
+        "Sending iMessages on other platforms is not supported."
+    )
+    warnings.warn(message, UserWarning)
+    
 BASE_APPLESCRIPT = """
 on run {phone_number, message}
 tell application "Messages"

@@ -1,26 +1,25 @@
 # imessage
 Python tools for sending iMessage/SMS message from a Mac. Check out the blog post on medium related to this repository: [Medium](https://medium.com/@jameskabbes/sending-imessages-with-python-on-a-mac-b77b7dd6e371)
 
-[Documentation](https://jameskabbes.github.io/imessage)<br>
 [PyPI](https://pypi.org/project/kabbes-imessage)
 
 <br> 
 
 # Installation
-`pip install kabbes_imessage`
+`pip install pyimessage`
 
 <br>
 
 # Running main
 
 ```
-python -m kabbes_imessage
+python -m pyimessage
 ```
 
 <br>
 
 # Usage
-For more in-depth documentation, read the information provided on documentation site. Or better yet, read the source code.
+
 
 ```python
 import kabbes_imessage
