@@ -8,6 +8,8 @@ def send( message: str, phone_number: str, medium: str ) -> bool:
     message_body: text to be sent in the message
     phone_number: phone number to send the message to
     medium: 'iMessage' or 'SMS'
+
+    returns: boolean saying where the Applescript was called successfully
     """
 
     # Verify platform is macOS
@@ -30,14 +32,15 @@ def send( message: str, phone_number: str, medium: str ) -> bool:
         pyimessage.LOGGER.error(error_string)
         raise pyimessage.exceptions.BadPhoneNumberFormatError(error_string)
 
-    pyimessage.LOGGER.info( 'sending ' + medium + ' to ' + phone_number )
-
+    #try to send the message
     try:
         result = subprocess.run(['osascript', '-e', applescript_code, phone_number, message], capture_output=True, text=True, check=True)
     except subprocess.CalledProcessError as e:
+        pyimessage.LOGGER.info( 'unsuccessfully sent ' + medium + ' to ' + phone_number )
         pyimessage.LOGGER.error('subprocess.CalledProcessError: ' + str(e.output))
         return False
 
+    pyimessage.LOGGER.info( 'successfully sent ' + medium + ' to ' + phone_number )
     pyimessage.LOGGER.debug( result )
     return True
 
