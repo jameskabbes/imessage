@@ -6,14 +6,14 @@ Python tools for sending iMessage/SMS message from a Mac. Check out the blog pos
 <br> 
 
 # Installation
-`pip install pyimessage`
+`pip install mac_imessage`
 
 <br>
 
 # Running main
 
 ```
-python -m pyimessage
+python -m mac_imessage
 ```
 
 <br>
@@ -22,21 +22,21 @@ python -m pyimessage
 
 
 ```python
-import kabbes_imessage
+import mac_imessage
 ```
 
 ## Basic Usage
 Check out `utils.py` for the most basic functionality
 
 ```python
-kabbes_imessage.send( 'This is a test message', '123-555-5555','iMessage' )
+mac_imessage.send( 'This is a test message', '123-555-5555','iMessage' )
 ```
 ```python
-kabbes_imessage.send_SMS( 'This is a test message', '123-555-5555' )
+mac_imessage.send_SMS( 'This is a test message', '123-555-5555' )
 ```
 
 ```python
-kabbes_imessage.send_iMessage( 'This is a test message', '123-555-5555' )
+mac_imessage.send_iMessage( 'This is a test message', '123-555-5555' )
 ```
 
 <br>
