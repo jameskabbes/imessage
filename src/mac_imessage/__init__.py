@@ -4,6 +4,8 @@ import warnings
 
 from .utils import *
 from . import exceptions
+from . import custom_types
+
 
 # Setup logger
 logging.basicConfig(
@@ -18,20 +20,16 @@ ON_MAC = (platform.system() == 'Darwin')
 if not ON_MAC:
     warnings.warn(exceptions.NotOnMacOSError.MESSAGE, UserWarning)
     LOGGER.warning(exceptions.NotOnMacOSError.MESSAGE
-)
+                   )
 
 BASE_APPLESCRIPT = """
-on run {phone_number, message}
+on run {phone_number, message, medium}
 tell application "Messages"
-    set targetService to 1st service whose service type = {medium}
+    set targetService to 1st service whose service type = medium
     set targetBuddy to buddy phone_number of targetService
     send message to targetBuddy
 end tell
 end run
 """
 
-MEDIUMS = {
-    "sms": "SMS",
-    "imessage": "iMessage"
-}
-
+MEDIUMS: set[custom_types.MEDIUMS] = {'sms', 'imessage'}
