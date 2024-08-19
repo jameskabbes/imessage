@@ -1,0 +1,73 @@
+name: gh-pages documentation builder
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install sphinx sphinx-rtd-theme
+          pip install -r requirements.txt
+
+      - name: Read setup.cfg
+        id: setup_cfg
+        run: |
+          python -c "
+          import configparser
+          config = configparser.ConfigParser()
+          config.read('setup.cfg')
+          project_name = config['metadata']['name']
+          version = config['metadata']['version']
+          print(f'::set-output name=project_name::{project_name}')
+          print(f'::set-output name=version::{version}')
+          "
+
+      - name: Generate documentation
+        run: |
+          cd code/sphinx/
+          sphinx-apidoc -o . ../
+          make html
+          cd ../..
+
+      - name: Ensure docs directory exists
+        run: |
+          rm -rf docs
+          mkdir docs
+
+      - name: Move documentation files
+        run: |
+          mv code/sphinx/_build/html/* docs
+
+      - name: Add .nojekyll file
+        run: |
+          touch docs/.nojekyll
+
+      - uses: actions/checkout@master
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add docs
+          git commit -m "Auto-generated documentation for ${{ steps.setup_cfg.outputs.project_name }} version ${{ steps.setup_cfg.outputs.version }}"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          force: true
