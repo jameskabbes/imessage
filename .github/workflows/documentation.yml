@@ -37,10 +37,11 @@ jobs:
         run: |
           rm -rf docs
           mkdir docs
-          cd src/mac_imessage
-          sphinx-apidoc -o ../../docs ../
-          make html
-          cd ../..
+          cd sphinx
+          sphinx-apidoc -o . ../src/
+          make html 
+          mv _build/html/* ../docs/
+          cd ../
 
       - name: Add .nojekyll file
         run: |
