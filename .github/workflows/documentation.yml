@@ -35,19 +35,12 @@ jobs:
 
       - name: Generate documentation
         run: |
-          cd code/sphinx/
-          sphinx-apidoc -o . ../
-          make html
-          cd ../..
-
-      - name: Ensure docs directory exists
-        run: |
           rm -rf docs
           mkdir docs
-
-      - name: Move documentation files
-        run: |
-          mv code/sphinx/_build/html/* docs
+          cd src/mac_imessage
+          sphinx-apidoc -o ../../docs ../
+          make html
+          cd ../..
 
       - name: Add .nojekyll file
         run: |
