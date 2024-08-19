@@ -2,8 +2,10 @@ import platform
 import logging
 import warnings
 
-from .utils import *
+from . import custom_types
 from . import exceptions
+from .utils import *
+
 
 # Setup logger
 logging.basicConfig(
@@ -18,7 +20,7 @@ ON_MAC = (platform.system() == 'Darwin')
 if not ON_MAC:
     warnings.warn(exceptions.NotOnMacOSError.MESSAGE, UserWarning)
     LOGGER.warning(exceptions.NotOnMacOSError.MESSAGE
-)
+                   )
 
 BASE_APPLESCRIPT = """
 on run {phone_number, message}
@@ -30,8 +32,4 @@ end tell
 end run
 """
 
-MEDIUMS = {
-    "sms": "SMS",
-    "imessage": "iMessage"
-}
-
+MEDIUMS: set[custom_types.MEDIUMS] = {'sms', 'imessage'}
