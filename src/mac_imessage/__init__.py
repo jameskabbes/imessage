@@ -2,9 +2,9 @@ import platform
 import logging
 import warnings
 
-from .utils import *
-from . import exceptions
 from . import custom_types
+from . import exceptions
+from .utils import *
 
 
 # Setup logger
@@ -23,9 +23,9 @@ if not ON_MAC:
                    )
 
 BASE_APPLESCRIPT = """
-on run {phone_number, message, medium}
+on run {phone_number, message}
 tell application "Messages"
-    set targetService to 1st service whose service type = medium
+    set targetService to 1st service whose service type = {medium}
     set targetBuddy to buddy phone_number of targetService
     send message to targetBuddy
 end tell

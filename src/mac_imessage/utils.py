@@ -41,8 +41,8 @@ def send(**kwargs: typing.Unpack[SendKwargs]) -> SendReturn:
 
     # try to send the message
     try:
-        result = subprocess.run(['osascript', '-e', mac_imessage.BASE_APPLESCRIPT,
-                                formatted_phone_number, message, medium], capture_output=True, text=True, check=True)
+        result = subprocess.run(['osascript', '-e', mac_imessage.BASE_APPLESCRIPT.replace('{medium}', medium),
+                                formatted_phone_number, message], capture_output=True, text=True, check=True)
     except subprocess.CalledProcessError as e:
         mac_imessage.LOGGER.info(
             'unsuccessfully sent ' + medium + ' to ' + phone_number)
