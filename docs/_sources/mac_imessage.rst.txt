@@ -1,0 +1,37 @@
+mac\_imessage package
+=====================
+
+Submodules
+----------
+
+mac\_imessage.custom\_types module
+----------------------------------
+
+.. automodule:: mac_imessage.custom_types
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mac\_imessage.exceptions module
+-------------------------------
+
+.. automodule:: mac_imessage.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mac\_imessage.utils module
+--------------------------
+
+.. automodule:: mac_imessage.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: mac_imessage
+   :members:
+   :undoc-members:
+   :show-inheritance:

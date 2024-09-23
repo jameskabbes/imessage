@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mac_imessage package &mdash; mac_imessage 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e259d695"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mac_imessage
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mac_imessage package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mac_imessage.custom_types">mac_imessage.custom_types module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mac_imessage.exceptions">mac_imessage.exceptions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.exceptions.BadPhoneNumberFormatError"><code class="docutils literal notranslate"><span class="pre">BadPhoneNumberFormatError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.exceptions.NotOnMacOSError"><code class="docutils literal notranslate"><span class="pre">NotOnMacOSError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.exceptions.UnsupportedMediumError"><code class="docutils literal notranslate"><span class="pre">UnsupportedMediumError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mac_imessage.utils">mac_imessage.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.utils.SendKwargs"><code class="docutils literal notranslate"><span class="pre">SendKwargs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.utils.SendViaMediumKwargs"><code class="docutils literal notranslate"><span class="pre">SendViaMediumKwargs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.utils.send"><code class="docutils literal notranslate"><span class="pre">send()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.utils.send_imessage"><code class="docutils literal notranslate"><span class="pre">send_imessage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac_imessage.utils.send_sms"><code class="docutils literal notranslate"><span class="pre">send_sms()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mac_imessage">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mac_imessage</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">mac_imessage package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mac_imessage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mac-imessage-package">
+<h1>mac_imessage package<a class="headerlink" href="#mac-imessage-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mac_imessage.custom_types">
+<span id="mac-imessage-custom-types-module"></span><h2>mac_imessage.custom_types module<a class="headerlink" href="#module-mac_imessage.custom_types" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mac_imessage.exceptions">
+<span id="mac-imessage-exceptions-module"></span><h2>mac_imessage.exceptions module<a class="headerlink" href="#module-mac_imessage.exceptions" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mac_imessage.exceptions.BadPhoneNumberFormatError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mac_imessage.exceptions.</span></span><span class="sig-name descname"><span class="pre">BadPhoneNumberFormatError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phone_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mac_imessage/exceptions.html#BadPhoneNumberFormatError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.exceptions.BadPhoneNumberFormatError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.exceptions.BadPhoneNumberFormatError.MESSAGE">
+<span class="sig-name descname"><span class="pre">MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'{phone_number}</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">valid</span> <span class="pre">phone</span> <span class="pre">number'</span></em><a class="headerlink" href="#mac_imessage.exceptions.BadPhoneNumberFormatError.MESSAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mac_imessage.exceptions.NotOnMacOSError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mac_imessage.exceptions.</span></span><span class="sig-name descname"><span class="pre">NotOnMacOSError</span></span><a class="reference internal" href="_modules/mac_imessage/exceptions.html#NotOnMacOSError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.exceptions.NotOnMacOSError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.exceptions.NotOnMacOSError.MESSAGE">
+<span class="sig-name descname"><span class="pre">MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sending</span> <span class="pre">messages</span> <span class="pre">on</span> <span class="pre">platforms</span> <span class="pre">other</span> <span class="pre">than</span> <span class="pre">macOS</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">supported'</span></em><a class="headerlink" href="#mac_imessage.exceptions.NotOnMacOSError.MESSAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mac_imessage.exceptions.UnsupportedMediumError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mac_imessage.exceptions.</span></span><span class="sig-name descname"><span class="pre">UnsupportedMediumError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">medium</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mac_imessage/exceptions.html#UnsupportedMediumError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.exceptions.UnsupportedMediumError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.exceptions.UnsupportedMediumError.MESSAGE">
+<span class="sig-name descname"><span class="pre">MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Medium</span> <span class="pre">{medium}</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">supported</span> <span class="pre">mediums</span> <span class="pre">{supported_mediums}'</span></em><a class="headerlink" href="#mac_imessage.exceptions.UnsupportedMediumError.MESSAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mac_imessage.utils">
+<span id="mac-imessage-utils-module"></span><h2>mac_imessage.utils module<a class="headerlink" href="#module-mac_imessage.utils" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendKwargs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mac_imessage.utils.</span></span><span class="sig-name descname"><span class="pre">SendKwargs</span></span><a class="reference internal" href="_modules/mac_imessage/utils.html#SendKwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.utils.SendKwargs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mac_imessage.utils.SendViaMediumKwargs" title="mac_imessage.utils.SendViaMediumKwargs"><code class="xref py py-class docutils literal notranslate"><span class="pre">SendViaMediumKwargs</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendKwargs.medium">
+<span class="sig-name descname"><span class="pre">medium</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MEDIUMS</span></em><a class="headerlink" href="#mac_imessage.utils.SendKwargs.medium" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendKwargs.message">
+<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MESSAGE</span></em><a class="headerlink" href="#mac_imessage.utils.SendKwargs.message" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendKwargs.phone_number">
+<span class="sig-name descname"><span class="pre">phone_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PHONE_NUMBER</span></em><a class="headerlink" href="#mac_imessage.utils.SendKwargs.phone_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendViaMediumKwargs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mac_imessage.utils.</span></span><span class="sig-name descname"><span class="pre">SendViaMediumKwargs</span></span><a class="reference internal" href="_modules/mac_imessage/utils.html#SendViaMediumKwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.utils.SendViaMediumKwargs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendViaMediumKwargs.message">
+<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MESSAGE</span></em><a class="headerlink" href="#mac_imessage.utils.SendViaMediumKwargs.message" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mac_imessage.utils.SendViaMediumKwargs.phone_number">
+<span class="sig-name descname"><span class="pre">phone_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PHONE_NUMBER</span></em><a class="headerlink" href="#mac_imessage.utils.SendViaMediumKwargs.phone_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mac_imessage.utils.send">
+<span class="sig-prename descclassname"><span class="pre">mac_imessage.utils.</span></span><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Unpack</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mac_imessage.utils.SendKwargs" title="mac_imessage.utils.SendKwargs"><span class="pre">SendKwargs</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SendReturn</span></span></span><a class="reference internal" href="_modules/mac_imessage/utils.html#send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.utils.send" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mac_imessage.utils.send_imessage">
+<span class="sig-prename descclassname"><span class="pre">mac_imessage.utils.</span></span><span class="sig-name descname"><span class="pre">send_imessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Unpack</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mac_imessage.utils.SendViaMediumKwargs" title="mac_imessage.utils.SendViaMediumKwargs"><span class="pre">SendViaMediumKwargs</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SendReturn</span></span></span><a class="reference internal" href="_modules/mac_imessage/utils.html#send_imessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.utils.send_imessage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mac_imessage.utils.send_sms">
+<span class="sig-prename descclassname"><span class="pre">mac_imessage.utils.</span></span><span class="sig-name descname"><span class="pre">send_sms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Unpack</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mac_imessage.utils.SendViaMediumKwargs" title="mac_imessage.utils.SendViaMediumKwargs"><span class="pre">SendViaMediumKwargs</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SendReturn</span></span></span><a class="reference internal" href="_modules/mac_imessage/utils.html#send_sms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mac_imessage.utils.send_sms" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-mac_imessage">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mac_imessage" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
